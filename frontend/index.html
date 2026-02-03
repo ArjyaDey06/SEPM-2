@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Arena Zone - Seat Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>ARENA ZONE</h1>
+                <p>Ultimate Gaming Experience</p>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active">Book Seats</button>
+                <button class="nav-btn">My Bookings</button>
+                <button class="nav-btn">Profile</button>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="booking-section">
+                <div class="section-header">
+                    <h2>Reserve Your Gaming Station</h2>
+                    <div class="arena-stats">
+                        <span class="stat">
+                            <span class="stat-value" id="totalSeats">24</span>
+                            <span class="stat-label">Total Seats</span>
+                        </span>
+                        <span class="stat">
+                            <span class="stat-value" id="availableSeats">18</span>
+                            <span class="stat-label">Available</span>
+                        </span>
+                        <span class="stat">
+                            <span class="stat-value" id="occupiedSeats">6</span>
+                            <span class="stat-label">Occupied</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="booking-controls">
+                    <div class="date-selector">
+                        <label>Select Date:</label>
+                        <input type="date" id="dateInput" min="">
+                    </div>
+                    <div class="time-slots">
+                        <label>Time Slots:</label>
+                        <div class="slot-buttons" id="timeSlots">
+                            <button class="slot-btn" data-time="09:00-12:00">9:00 AM - 12:00 PM</button>
+                            <button class="slot-btn" data-time="12:00-15:00">12:00 PM - 3:00 PM</button>
+                            <button class="slot-btn" data-time="15:00-18:00">3:00 PM - 6:00 PM</button>
+                            <button class="slot-btn" data-time="18:00-21:00">6:00 PM - 9:00 PM</button>
+                            <button class="slot-btn" data-time="21:00-00:00">9:00 PM - 12:00 AM</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arena-layout">
+                    <div class="arena-screen">
+                        <div class="screen-content">
+                            <h3>BATTLE STATION</h3>
+                            <p>High-Performance Gaming Arena</p>
+                        </div>
+                    </div>
+                    
+                    <div class="seats-container">
+                        <div class="seat-row" data-row="A">
+                            <span class="row-label">A</span>
+                            <div class="seats">
+                                <button class="seat available" data-seat="A1">A1</button>
+                                <button class="seat available" data-seat="A2">A2</button>
+                                <button class="seat occupied" data-seat="A3">A3</button>
+                                <button class="seat available" data-seat="A4">A4</button>
+                                <button class="seat available" data-seat="A5">A5</button>
+                                <button class="seat available" data-seat="A6">A6</button>
+                            </div>
+                        </div>
+                        
+                        <div class="seat-row" data-row="B">
+                            <span class="row-label">B</span>
+                            <div class="seats">
+                                <button class="seat available" data-seat="B1">B1</button>
+                                <button class="seat occupied" data-seat="B2">B2</button>
+                                <button class="seat available" data-seat="B3">B3</button>
+                                <button class="seat available" data-seat="B4">B4</button>
+                                <button class="seat available" data-seat="B5">B5</button>
+                                <button class="seat occupied" data-seat="B6">B6</button>
+                            </div>
+                        </div>
+                        
+                        <div class="seat-row" data-row="C">
+                            <span class="row-label">C</span>
+                            <div class="seats">
+                                <button class="seat available" data-seat="C1">C1</button>
+                                <button class="seat available" data-seat="C2">C2</button>
+                                <button class="seat available" data-seat="C3">C3</button>
+                                <button class="seat occupied" data-seat="C4">C4</button>
+                                <button class="seat available" data-seat="C5">C5</button>
+                                <button class="seat available" data-seat="C6">C6</button>
+                            </div>
+                        </div>
+                        
+                        <div class="seat-row" data-row="D">
+                            <span class="row-label">D</span>
+                            <div class="seats">
+                                <button class="seat available" data-seat="D1">D1</button>
+                                <button class="seat available" data-seat="D2">D2</button>
+                                <button class="seat available" data-seat="D3">D3</button>
+                                <button class="seat available" data-seat="D4">D4</button>
+                                <button class="seat occupied" data-seat="D5">D5</button>
+                                <button class="seat available" data-seat="D6">D6</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-seat available"></div>
+                        <span>Available</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-seat selected"></div>
+                        <span>Selected</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-seat occupied"></div>
+                        <span>Occupied</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="booking-summary">
+                <h3>Booking Summary</h3>
+                <div class="summary-content">
+                    <div class="summary-item">
+                        <span class="label">Date:</span>
+                        <span class="value" id="summaryDate">Not selected</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Time:</span>
+                        <span class="value" id="summaryTime">Not selected</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Seats:</span>
+                        <span class="value" id="summarySeats">None selected</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span class="label">Total Price:</span>
+                        <span class="value" id="totalPrice">$0</span>
+                    </div>
+                </div>
+                <button class="book-btn" id="bookBtn" disabled>Proceed to Booking</button>
+            </section>
+        </main>
+
+        <div class="modal" id="confirmationModal">
+            <div class="modal-content">
+                <h3>Confirm Your Booking</h3>
+                <div class="booking-details">
+                    <p><strong>Date:</strong> <span id="confirmDate"></span></p>
+                    <p><strong>Time:</strong> <span id="confirmTime"></span></p>
+                    <p><strong>Seats:</strong> <span id="confirmSeats"></span></p>
+                    <p><strong>Total:</strong> <span id="confirmTotal"></span></p>
+                </div>
+                <div class="modal-actions">
+                    <button class="cancel-btn" id="cancelBtn">Cancel</button>
+                    <button class="confirm-btn" id="confirmBtn">Confirm Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
